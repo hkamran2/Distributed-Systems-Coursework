@@ -49,10 +49,9 @@ public class Question4 {
             List<Cloudlet> newList = broker.getCloudletReceivedList();
             printCloudletList(newList);
 
-            Log.printLine("CloudSimExample1 finished!");
+            Log.printLine("Finished execution");
         } catch (Exception e) {
             e.printStackTrace();
-            Log.printLine("Unwanted errors happen");
         }
     }
 
@@ -76,6 +75,14 @@ public class Question4 {
 
         return cloudletList;
     }
+    /**
+     * Creates the vms to be hosted on host machines
+     * Each vm will had 512mb ram with processor count of 0 and 1000 mips
+     * The power is set to 1000 with vm name for each vm being amongst the lines
+     * of vm-<i>
+     * @param brokerId
+     * @return List of vms
+     */
     private static ArrayList<Vm> createVms(int brokerId){
         ArrayList<Vm> vmlist = new ArrayList<Vm>();
 
@@ -87,10 +94,7 @@ public class Question4 {
         String vmm = "Xen";
 
         for (int i = 0; i < 4; i++) {
-            // create VM
             Vm vm = new Vm(i, brokerId, mips, pesNumber, ram, bw, size, vmm + "-" + i, new CloudletSchedulerTimeShared());
-
-            // add the VM to the vmList
             vmlist.add(vm);
         }
 
@@ -163,7 +167,12 @@ public class Question4 {
 
         return datacenter;
     }
-
+    /**
+     * Datacenter Brokers helps connect users to the cloud
+     * by allocating a cloudlets to VMs. This helps to make sure all
+     * the running systems are kept stable with an approriate balance.
+     * @return
+     */
     private static DatacenterBroker createBroker() {
         DatacenterBroker broker = null;
         try {
@@ -174,7 +183,7 @@ public class Question4 {
         }
         return broker;
     }
-    
+
     private static void printCloudletList(List<Cloudlet> list) {
         int size = list.size();
         Cloudlet cloudlet;
