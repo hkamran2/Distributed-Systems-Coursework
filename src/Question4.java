@@ -171,6 +171,7 @@ public class Question4 {
      * Datacenter Brokers helps connect users to the cloud
      * by allocating a cloudlets to VMs. This helps to make sure all
      * the running systems are kept stable with an approriate balance.
+     * and all the required requests are served accordingly.
      * @return
      */
     private static DatacenterBroker createBroker() {

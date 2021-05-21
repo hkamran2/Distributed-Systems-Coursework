@@ -1,6 +1,12 @@
 import mpi.* ;
 
 public class Question2 {
+    /**
+     * Solution adapted from lecture slides and from the following resouce:
+     * https://www.mcs.anl.gov/research/projects/mpi/tutorial/mpiexmpl/src/pi/C/main.html
+     * @param args
+     * @throws MPIException
+     */
     public static void main(String[] args) throws MPIException{
         MPI.Init(args);
 
